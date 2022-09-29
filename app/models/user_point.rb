@@ -1,4 +1,3 @@
 class UserPoint < ApplicationRecord
-  belongs_to :user
-  belongs_to :payer
+  validates_presence_of :payer, :points
 end

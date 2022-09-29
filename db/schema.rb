@@ -14,31 +14,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_29_203907) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "payers", force: :cascade do |t|
-    t.string "name"
-    t.integer "points"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "user_points", force: :cascade do |t|
     t.string "payer"
     t.integer "points"
-    t.bigint "user_id", null: false
-    t.bigint "payer_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["payer_id"], name: "index_user_points_on_payer_id"
-    t.index ["user_id"], name: "index_user_points_on_user_id"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.integer "points"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "user_points", "payers"
-  add_foreign_key "user_points", "users"
 end
