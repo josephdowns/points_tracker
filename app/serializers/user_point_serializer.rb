@@ -2,12 +2,18 @@ class UserPointSerializer
   def self.add_points(points)
     {
       'data': {
-        'id': 'points.id',
+        'id': points.id,
         'attributes': {
-          'payer': 'points.payer',
-          'points': 'points.points'
+          'payer': points.payer,
+          'points': points.points
         }
       }
+    }
+  end
+
+  def self.total_points(data)
+    {
+      'data': data
     }
   end
 end

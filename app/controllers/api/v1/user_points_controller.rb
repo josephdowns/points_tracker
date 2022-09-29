@@ -8,6 +8,11 @@ class Api::V1::UserPointsController < ApplicationController
     end
   end
 
+  def index
+    points = UserPoint.sum_points
+    render json: UserPointSerializer.total_points(points)
+  end
+
   private
 
   def user_points_params
