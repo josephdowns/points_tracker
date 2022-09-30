@@ -16,4 +16,10 @@ class UserPointSerializer
       'data': data
     }
   end
+
+  def self.new_total(data)
+    {
+      'data': data
+    }
+  end
 end
