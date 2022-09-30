@@ -61,5 +61,16 @@ RSpec.describe "User Points API" do
     spent = JSON.parse(response.body, symbolize_names: true)[:data]
 
     expect(response).to be_successful
+    expect(spent[:Unilever]).to eq(-200)
+    expect(spent[:"Miller Coors"]).to eq(-4700)
+    expect(spent[:Dannon]).to eq(-100)
+
+    get "/api/v1/user_points", headers: headers
+    index = JSON.parse(response.body, symbolize_names: true)[:data]
+
+    expect(index[:Dannon]).to eq(1000)
+    expect(index[:Unilever]).to eq(0)
+    expect(index[:"Miller Coors"]).to eq(5300)
+
   end
 end
