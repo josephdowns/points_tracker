@@ -46,4 +46,20 @@ RSpec.describe "User Points API" do
     expect(index.keys.count).to eq(3)
     expect(index[:Unilever]).to eq(200)
   end
+
+  it "spends points" do
+    headers = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }
+
+    params = {
+      points: 5000
+    }
+
+    patch "/api/v1/user_points", headers: headers, params: JSON.generate(params)
+    spent = JSON.parse(response.body, symbolize_names: true)[:data]
+
+    expect(response).to be_successful
+  end
 end

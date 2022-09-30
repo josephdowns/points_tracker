@@ -13,6 +13,11 @@ class Api::V1::UserPointsController < ApplicationController
     render json: UserPointSerializer.total_points(points)
   end
 
+  def update
+    used_points = UserPoint.spend_points(params[:points])
+    render json: UserPointSerializer.new_total(used_points)
+  end
+
   private
 
   def user_points_params
