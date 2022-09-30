@@ -7,7 +7,9 @@
 ## Table of Contents
 - [Schema](#schema)
 - [Setup](#setup)
+- [Gems](#gems)
 - [Endpoints](#endpoints)
+- [Contributors](#contributors)
 
 ## Schema
 
@@ -57,6 +59,13 @@ $ rails db:{drop,create,migrate}
 ```shell
 $ rails s
 ```
+## Gems
+- These added gems are specific to testing and do not affect functionality
+````ruby
+gem 'rspec-rails'
+gem 'shoulda-matchers'
+````
+
 ## Endpoints
 
 - Add transactions for a specific payer and date
@@ -82,8 +91,28 @@ POST /api/v1/user_points
 PATCH /api/v1/user_points/5000
 
 {
-  'data': {
-    
+  {'data': {
+    "Miller Coors": -4700, 
+    "Unilever": -200, 
+    "Dannon": -100
+    }
   }
 }
+````
 
+- Return all payer point balances
+````ruby
+GET /api/v1/user_points
+
+{
+  'data': {
+    "Dannon": 1100,
+    "Unilever": 200,
+    "Miller Coors": 10000
+  }
+}
+````
+
+## Contributors
+
+<td align="center"><img src="https://avatars.githubusercontent.com/u/93220002?s=400&u=9e2d707e1b8f15766ce240ab4272fa2fde076e87&v=4" width="100px;" alt=""/><br /><sub><b>Joseph Downs (he/him)</b></sub></a><br /><a href="https://www.linkedin.com/in/josdowns/" title ="Linked In"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a><br /><a href="https://github.com/josephdowns" title ="GitHub"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" width="115"></td>
