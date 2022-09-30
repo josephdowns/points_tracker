@@ -5,7 +5,8 @@ class UserPointSerializer
         'id': points.id,
         'attributes': {
           'payer': points.payer,
-          'points': points.points
+          'points': points.points,
+          'created_at': points.created_at
         }
       }
     }
