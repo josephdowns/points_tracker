@@ -5,9 +5,9 @@
 ![rspec](https://img.shields.io/badge/RSpec-3.11.0-green)
 
 ## Table of Contents
-- [Schema] (#schema)
-- [Setup] (#setup)
-- [Endpoints] (#endpoints)
+- [Schema](#schema)
+- [Setup](#setup)
+- [Endpoints](#endpoints)
 
 ## Schema
 
@@ -57,3 +57,33 @@ $ rails db:{drop,create,migrate}
 ```shell
 $ rails s
 ```
+## Endpoints
+
+- Add transactions for a specific payer and date
+
+````ruby
+POST /api/v1/user_points
+
+{
+  'data': {
+  'id': '1',
+  'attributes': {
+    'payer': 'Gamestop',
+    'points': '700',
+    'created_at': '9/30/22'
+    }
+  }
+}
+````
+
+- Spend points
+- Example: User wants to use 5000 points
+````ruby
+PATCH /api/v1/user_points/5000
+
+{
+  'data': {
+    
+  }
+}
+
