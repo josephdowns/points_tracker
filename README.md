@@ -1,24 +1,59 @@
-# README
+# Points Tracker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![ruby](https://img.shields.io/badge/Ruby-2.7.4-red)
+![rails](https://img.shields.io/badge/Rails-7.0.4-red)
+![rspec](https://img.shields.io/badge/RSpec-3.11.0-green)
 
-Things you may want to cover:
+## Table of Contents
+- [Schema] (#schema)
+- [Setup] (#setup)
+- [Endpoints] (#endpoints)
 
-* Ruby version
+## Schema
 
-* System dependencies
+![schema](./app/media/images/Screen%20Shot%202022-09-29%20at%2014.45.23.png)
 
-* Configuration
+## Setup
 
-* Database creation
+1. Clone this repository: On your local machine, open a terminal session and enter the following commands for SSH or HTTPS to clone the repo.
 
-* Database initialization
+- using SSH key <br>
+```shell
+$ git@github.com:josephdowns/points_tracker.git
+```
 
-* How to run the test suite
+- using HTTPS <br>
+```shell
+$ https://github.com/josephdowns/points_tracker.git
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+- Once cloned, you'll have a new local copy in the directory you ran the clone command in.
 
-* Deployment instructions
+2. Change to the project directory: In terminal, use `$cd` to navigate to the project directory.
+```shell
+$ cd points_tracker
+```
 
-* ...
+3. Install required Gems utilizing Bundler: <br>
+- In terminal, use Bundler to install any missing Gems. If Bundler is not installed, first run the following command.
+```shell
+$ gem install bundler
+```
+
+- If Bundler is already installed or after it has been installed, run the following command.
+```shell
+$ bundle install
+```
+
+4. Database Migration<br>
+- Before using the web application you will need to setup your databases locally by running the following command
+```shell
+$ rails db:{drop,create,migrate}
+```
+5. Startup and Access<br>
+- Finally, you will have to start the server locally if you would like to test the functionality using a third party app such as Postman.
+
+- Start server
+```shell
+$ rails s
+```
