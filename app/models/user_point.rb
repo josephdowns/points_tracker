@@ -32,4 +32,12 @@ class UserPoint < ApplicationRecord
     end
     h
   end
+
+  def self.enough_points?(points)
+    if points <= UserPoint.sum(:points)
+      return true
+    else
+      return false
+    end
+  end
 end

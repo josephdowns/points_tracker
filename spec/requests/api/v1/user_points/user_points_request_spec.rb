@@ -73,4 +73,21 @@ RSpec.describe "User Points API" do
     expect(index[:"Miller Coors"]).to eq(5300)
 
   end
+
+  it "cannot spend points you do not have" do
+    headers = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }
+
+    params = {
+      points: "15000"
+    }
+
+    patch "/api/v1/user_points", headers: headers, params: JSON.generate(params)
+    spent = JSON.parse(response.body, symbolize_names: true)[:error]
+
+    expect(spent).to eq("Not enough points")
+    expect(status).to be(404)
+  end
 end
