@@ -56,6 +56,8 @@ $ rails db:{drop,create,migrate}
 - Finally, you will have to start the server locally if you would like to test the functionality using a third party app such as Postman.
 
 - Start server
+
+- To access on your local machine use http://localhost:3000
 ```shell
 $ rails s
 ```
@@ -88,7 +90,7 @@ POST /api/v1/user_points
 - Spend points
 - Example: User wants to use 5000 points
 ````ruby
-PATCH /api/v1/user_points/5000
+PATCH /api/v1/user_points?points=5000
 
 {
   {'data': {

@@ -14,7 +14,9 @@ class Api::V1::UserPointsController < ApplicationController
   end
 
   def update
-    used_points = UserPoint.spend_points(params[:points])
+    binding.pry
+    used_points = UserPoint.spend_points((params[:points]).to_i)
+    binding.pry
     render json: UserPointSerializer.new_total(used_points)
   end
 

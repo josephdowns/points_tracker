@@ -54,7 +54,7 @@ RSpec.describe "User Points API" do
     }
 
     params = {
-      points: 5000
+      points: "5000"
     }
 
     patch "/api/v1/user_points", headers: headers, params: JSON.generate(params)
