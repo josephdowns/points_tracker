@@ -14,8 +14,12 @@ class Api::V1::UserPointsController < ApplicationController
   end
 
   def update
-    used_points = UserPoint.spend_points((params[:points]).to_i)
-    render json: UserPointSerializer.new_total(used_points)
+    if UserPoint.enough_points?((params[:points]).to_i)
+      used_points = UserPoint.spend_points((params[:points]).to_i)
+      render json: UserPointSerializer.new_total(used_points)
+    else
+      render json: {error: "Not enough points"}, status: 404
+    end
   end
 
   private
